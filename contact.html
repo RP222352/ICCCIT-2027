@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Contact the ICCCIT 2027 secretariat at RV University, Bengaluru.">
+<title>Contact | ICCCIT 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ICCCIT 2027 — RV University, Bengaluru
+   Design tokens derived from the RVU brochure identity:
+   deep forest green, institutional navy, brass gold.
+   ============================================================ */
+
+:root{
+  /* Core palette */
+  --ink:            #0A1A2B;
+  --ink-2:          #16324B;
+  --navy:           #123A6B;
+  --navy-dp:        #0B2645;
+  --green:          #0E7A3C;
+  --green-br:       #43B02A;
+  --gold:           #C08A1E;
+  --gold-lt:        #E5B94E;
+
+  /* Surfaces */
+  --bg:             #F5F8F7;
+  --surface:        #FFFFFF;
+  --surface-2:      #EDF3F1;
+  --line:           #DCE6E3;
+  --line-2:         #C6D6D1;
+
+  /* Text */
+  --tx:             #0E2233;
+  --tx-2:           #4A6070;
+  --tx-3:           #7B8F9C;
+  --tx-inv:         #F2F7F5;
+
+  /* Countdown accents */
+  --cd-d:           #C0392B;
+  --cd-h:           #C08A1E;
+  --cd-m:           #1B5FA8;
+  --cd-s:           #0E7A3C;
+
+  /* Type */
+  --f-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --f-body:    "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Space & shape */
+  --r-sm: 6px;
+  --r:    12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+  --shadow-1: 0 1px 2px rgba(10,26,43,.06), 0 2px 8px rgba(10,26,43,.05);
+  --shadow-2: 0 4px 12px rgba(10,26,43,.08), 0 12px 32px rgba(10,26,43,.09);
+  --shadow-3: 0 8px 24px rgba(10,26,43,.12), 0 24px 60px rgba(10,26,43,.14);
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --maxw: 1200px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; scroll-padding-top:100px; }
+
+body{
+  margin:0;
+  font-family:var(--f-body);
+  font-size:16.5px;
+  line-height:1.65;
+  color:var(--tx);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4,h5{ font-family:var(--f-display); font-weight:700; line-height:1.15; letter-spacing:-.02em; margin:0 0 .5em; color:var(--ink); }
+h1{ font-size:clamp(2rem,4.6vw,3.4rem); }
+h2{ font-size:clamp(1.55rem,3vw,2.35rem); }
+h3{ font-size:clamp(1.15rem,1.9vw,1.45rem); }
+h4{ font-size:1.05rem; }
+p{ margin:0 0 1.1em; }
+a{ color:var(--navy); text-decoration:none; transition:color .2s var(--ease); }
+a:hover{ color:var(--green); }
+img{ max-width:100%; display:block; }
+ul,ol{ margin:0 0 1.1em; padding-left:1.25em; }
+li{ margin-bottom:.4em; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; border-radius:3px; }
+
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+.narrow{ max-width:880px; }
+
+/* ---------- Top strip ---------- */
+.topbar{
+  background:var(--navy-dp);
+  color:#C9D8E6;
+  font-size:.78rem;
+  letter-spacing:.03em;
+}
+.topbar .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:38px; flex-wrap:wrap; }
+.topbar a{ color:#C9D8E6; }
+.topbar a:hover{ color:var(--gold-lt); }
+.topbar-org{ font-family:var(--f-mono); text-transform:uppercase; }
+.topbar-links{ display:flex; gap:18px; align-items:center; }
+
+/* ---------- Header / nav ---------- */
+.site-header{
+  position:sticky; top:0; z-index:200;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.site-header.scrolled{ box-shadow:var(--shadow-2); background:rgba(255,255,255,.98); }
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:74px; }
+
+.brand{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.brand-mark{
+  width:46px; height:46px; flex-shrink:0;
+  border-radius:11px;
+  background:linear-gradient(140deg,var(--green) 0%,var(--navy) 100%);
+  display:grid; place-items:center;
+  box-shadow:0 4px 14px rgba(14,122,60,.28);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.brand:hover .brand-mark{ transform:rotate(-6deg) scale(1.06); box-shadow:0 8px 22px rgba(14,122,60,.4); }
+.brand-mark svg{ width:26px; height:26px; }
+.brand-text{ line-height:1.1; }
+.brand-title{ font-family:var(--f-display); font-weight:800; font-size:1.18rem; color:var(--ink); letter-spacing:-.03em; display:block; }
+.brand-sub{ font-family:var(--f-mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--tx-3); display:block; }
+
+.nav-list{ display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0; }
+.nav-item{ position:relative; }
+.nav-link{
+  display:flex; align-items:center; gap:5px;
+  padding:9px 13px;
+  font-size:.875rem; font-weight:600;
+  color:var(--tx-2);
+  border-radius:var(--r-pill);
+  white-space:nowrap;
+  transition:all .22s var(--ease);
+}
+.nav-link .caret{ width:11px; height:11px; transition:transform .25s var(--ease); opacity:.6; }
+.nav-item:hover > .nav-link,
+.nav-link.active{
+  color:var(--ink);
+  background:linear-gradient(180deg,var(--gold-lt) 0%,var(--gold) 100%);
+  box-shadow:0 3px 10px rgba(192,138,30,.35);
+}
+.nav-item:hover > .nav-link .caret{ transform:rotate(180deg); }
+
+.dropdown{
+  position:absolute; top:calc(100% + 10px); left:50%;
+  transform:translateX(-50%) translateY(-8px);
+  min-width:258px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:var(--shadow-3);
+  padding:8px;
+  list-style:none; margin:0;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .22s var(--ease), transform .22s var(--ease), visibility .22s;
+}
+.dropdown::before{ content:""; position:absolute; top:-12px; left:0; right:0; height:12px; }
+.nav-item:hover .dropdown, .nav-item:focus-within .dropdown{
+  opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);
+}
+.dropdown li{ margin:0; }
+.dropdown a{
+  display:block; padding:9px 13px;
+  font-size:.845rem; font-weight:500; color:var(--tx-2);
+  border-radius:9px;
+  border-left:3px solid transparent;
+  transition:all .18s var(--ease);
+}
+.dropdown a:hover{ background:var(--surface-2); color:var(--green); border-left-color:var(--green); padding-left:17px; }
+
+.nav-cta{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 20px;
+  background:linear-gradient(135deg,var(--green) 0%,#0a5f2e 100%);
+  color:#fff; font-weight:700; font-size:.85rem;
+  border-radius:var(--r-pill);
+  box-shadow:0 4px 14px rgba(14,122,60,.32);
+  transition:all .25s var(--ease);
+  white-space:nowrap;
+}
+.nav-cta:hover{ color:#fff; transform:translateY(-2px); box-shadow:0 8px 22px rgba(14,122,60,.45); }
+.nav-cta svg{ width:16px; height:16px; }
+
+.burger{
+  display:none; width:44px; height:44px;
+  background:none; border:1px solid var(--line);
+  border-radius:11px; cursor:pointer;
+  flex-direction:column; justify-content:center; align-items:center; gap:5px;
+}
+.burger span{ display:block; width:20px; height:2px; background:var(--ink); border-radius:2px; transition:all .28s var(--ease); }
+.burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2){ opacity:0; }
+.burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(ellipse 70% 90% at 15% 0%, rgba(14,122,60,.20), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 88% 20%, rgba(18,58,107,.32), transparent 62%),
+    linear-gradient(165deg,#0B2645 0%,#0E2E3E 48%,#0A2A20 100%);
+  color:var(--tx-inv);
+  overflow:hidden;
+  padding:72px 0 60px;
+}
+#net-canvas{ position:absolute; inset:0; width:100%; height:100%; opacity:.5; }
+.hero .wrap{ position:relative; z-index:2; }
+.hero-inner{ text-align:center; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:7px 17px;
+  border:1px solid rgba(229,185,78,.45);
+  background:rgba(229,185,78,.1);
+  color:var(--gold-lt);
+  font-family:var(--f-mono); font-size:.7rem; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase;
+  border-radius:var(--r-pill);
+  margin-bottom:26px;
+}
+.eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--green-br); box-shadow:0 0 0 0 rgba(67,176,42,.7); animation:pulse 2.2s infinite; }
+@keyframes pulse{ 70%{ box-shadow:0 0 0 9px rgba(67,176,42,0);} 100%{ box-shadow:0 0 0 0 rgba(67,176,42,0);} }
+
+/* Countdown — single horizontal line (signature element) */
+.countdown{
+  display:flex; align-items:flex-start; justify-content:center;
+  gap:6px; margin-bottom:38px; flex-wrap:nowrap;
+}
+.cd-unit{
+  min-width:112px; padding:16px 12px 12px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:16px;
+  backdrop-filter:blur(6px);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.cd-unit:hover{ transform:translateY(-6px); border-color:rgba(255,255,255,.3); }
+.cd-num{
+  display:block;
+  font-family:var(--f-mono); font-weight:700;
+  font-size:clamp(1.9rem,4.4vw,3.15rem);
+  line-height:1; letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;
+}
+.cd-lbl{
+  display:block; margin-top:9px;
+  font-family:var(--f-mono); font-size:.6rem; font-weight:600;
+  letter-spacing:.22em; text-transform:uppercase; color:rgba(242,247,245,.6);
+}
+.cd-sep{ font-size:clamp(1.5rem,3.4vw,2.5rem); color:rgba(242,247,245,.24); line-height:1; padding-top:18px; font-family:var(--f-mono); }
+.cd-d .cd-num{ color:#F0705F; text-shadow:0 0 26px rgba(192,57,43,.6); }
+.cd-h .cd-num{ color:var(--gold-lt); text-shadow:0 0 26px rgba(192,138,30,.6); }
+.cd-m .cd-num{ color:#6FB4F2; text-shadow:0 0 26px rgba(27,95,168,.6); }
+.cd-s .cd-num{ color:#5FD07E; text-shadow:0 0 26px rgba(14,122,60,.6); }
+.cd-d:hover{ box-shadow:0 12px 30px rgba(192,57,43,.28); }
+.cd-h:hover{ box-shadow:0 12px 30px rgba(192,138,30,.28); }
+.cd-m:hover{ box-shadow:0 12px 30px rgba(27,95,168,.28); }
+.cd-s:hover{ box-shadow:0 12px 30px rgba(14,122,60,.28); }
+
+.hero-ordinal{
+  font-family:var(--f-display); font-weight:800;
+  font-size:clamp(1.9rem,5.2vw,3.7rem);
+  line-height:1.06; letter-spacing:-.035em;
+  color:#fff; margin:0 0 6px;
+}
+.hero-ordinal sup{ font-size:.44em; top:-.7em; margin-right:.06em; }
+.hero-fullname{
+  font-size:clamp(.95rem,1.9vw,1.25rem);
+  font-weight:600; color:rgba(242,247,245,.9);
+  max-width:800px; margin:0 auto 22px;
+  line-height:1.4;
+}
+.hero-meta{
+  display:flex; justify-content:center; flex-wrap:wrap; gap:10px 26px;
+  font-family:var(--f-mono); font-size:.82rem; letter-spacing:.05em;
+  color:var(--gold-lt); margin-bottom:20px;
+}
+.hero-meta span{ display:inline-flex; align-items:center; gap:8px; }
+.hero-meta svg{ width:15px; height:15px; }
+.hero-desc{ max-width:720px; margin:0 auto 30px; color:rgba(242,247,245,.75); font-size:1rem; }
+.hero-actions{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+
+/* ---------- Deadline strip ---------- */
+.dstrip{ background:var(--surface); border-bottom:1px solid var(--line); padding:20px 0; }
+.dstrip-grid{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.dchip{
+  display:inline-flex; align-items:center; gap:11px;
+  padding:10px 18px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:var(--r-pill);
+  white-space:nowrap;
+  transition:all .25s var(--ease);
+}
+.dchip:hover{ transform:translateY(-3px); border-color:var(--green); box-shadow:0 8px 18px rgba(14,122,60,.15); background:#fff; }
+.dchip svg{ width:17px; height:17px; color:var(--green); flex-shrink:0; }
+.dchip-txt{ display:flex; flex-direction:column; line-height:1.25; }
+.dchip-lbl{ font-size:.7rem; color:var(--tx-3); text-transform:uppercase; letter-spacing:.08em; white-space:nowrap; }
+.dchip-val{ font-family:var(--f-mono); font-size:.85rem; font-weight:700; color:var(--ink); white-space:nowrap; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:13px 26px;
+  font-family:var(--f-body); font-weight:700; font-size:.92rem;
+  border-radius:var(--r-pill);
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:all .25s var(--ease);
+  text-align:center;
+}
+.btn svg{ width:17px; height:17px; }
+.btn-primary{ background:linear-gradient(135deg,var(--green) 0%,#0a5f2e 100%); color:#fff; box-shadow:0 5px 16px rgba(14,122,60,.35); }
+.btn-primary:hover{ color:#fff; transform:translateY(-3px); box-shadow:0 12px 28px rgba(14,122,60,.48); }
+.btn-gold{ background:linear-gradient(135deg,var(--gold-lt) 0%,var(--gold) 100%); color:var(--ink); box-shadow:0 5px 16px rgba(192,138,30,.35); }
+.btn-gold:hover{ color:var(--ink); transform:translateY(-3px); box-shadow:0 12px 28px rgba(192,138,30,.48); }
+.btn-ghost{ background:rgba(255,255,255,.07); color:#fff; border-color:rgba(255,255,255,.32); }
+.btn-ghost:hover{ background:rgba(255,255,255,.16); color:#fff; transform:translateY(-3px); border-color:#fff; }
+.btn-outline{ background:transparent; color:var(--navy); border-color:var(--line-2); }
+.btn-outline:hover{ background:var(--navy); color:#fff; border-color:var(--navy); transform:translateY(-3px); }
+.btn-sm{ padding:9px 18px; font-size:.82rem; }
+
+/* ---------- Page banner (interior pages) ---------- */
+.pbanner{
+  position:relative;
+  background:
+    radial-gradient(ellipse 60% 100% at 12% 0%, rgba(14,122,60,.24), transparent 62%),
+    linear-gradient(120deg,#0B2645 0%,#123A6B 58%,#0E5A38 130%);
+  color:var(--tx-inv);
+  padding:58px 0 52px;
+  overflow:hidden;
+}
+.pbanner::after{
+  content:""; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 80% 100% at 70% 40%,#000,transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 100% at 70% 40%,#000,transparent 72%);
+}
+.pbanner .wrap{ position:relative; z-index:2; }
+.pbanner h1{ color:#fff; margin-bottom:12px; }
+.pbanner p{ color:rgba(242,247,245,.78); max-width:660px; margin:0; }
+.crumbs{ display:flex; align-items:center; gap:9px; font-size:.78rem; color:rgba(242,247,245,.6); margin-bottom:18px; font-family:var(--f-mono); }
+.crumbs a{ color:var(--gold-lt); }
+.crumbs a:hover{ color:#fff; }
+.crumbs svg{ width:12px; height:12px; opacity:.5; }
+
+/* ---------- Sections ---------- */
+.sec{ padding:78px 0; }
+.sec-tint{ background:var(--surface); }
+.sec-deep{
+  background:linear-gradient(150deg,#0B2645 0%,#0E3A2A 100%);
+  color:var(--tx-inv);
+}
+.sec-deep h2,.sec-deep h3{ color:#fff; }
+.sec-deep p{ color:rgba(242,247,245,.75); }
+
+.sec-head{ margin-bottom:44px; max-width:760px; }
+.sec-head.ctr{ margin-left:auto; margin-right:auto; text-align:center; }
+.kicker{
+  display:inline-block;
+  font-family:var(--f-mono); font-size:.7rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--green); margin-bottom:12px;
+  position:relative; padding-left:32px;
+}
+.kicker::before{ content:""; position:absolute; left:0; top:50%; width:22px; height:2px; background:var(--gold); }
+.sec-head.ctr .kicker{ padding-left:0; }
+.sec-head.ctr .kicker::before{ display:none; }
+.sec-deep .kicker{ color:var(--gold-lt); }
+.sec-head p{ color:var(--tx-2); font-size:1.02rem; margin-bottom:0; }
+.sec-deep .sec-head p{ color:rgba(242,247,245,.72); }
+
+/* ---------- Grid helpers ---------- */
+.grid{ display:grid; gap:22px; }
+.g2{ grid-template-columns:repeat(2,1fr); }
+.g3{ grid-template-columns:repeat(3,1fr); }
+.g4{ grid-template-columns:repeat(4,1fr); }
+.g-split{ display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:start; }
+
+/* ---------- Cards ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:28px;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  position:relative; overflow:hidden;
+}
+.card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--green),var(--gold));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-3); border-color:var(--line-2); }
+.card:hover::before{ transform:scaleX(1); }
+.card h3{ margin-bottom:10px; }
+.card p:last-child{ margin-bottom:0; }
+.card-ico{
+  width:50px; height:50px; border-radius:14px;
+  background:linear-gradient(140deg,rgba(14,122,60,.12),rgba(18,58,107,.12));
+  display:grid; place-items:center;
+  margin-bottom:18px;
+  transition:transform .35s var(--ease), background .35s var(--ease);
+}
+.card-ico svg{ width:24px; height:24px; color:var(--green); }
+.card:hover .card-ico{ transform:scale(1.1) rotate(-5deg); background:linear-gradient(140deg,var(--green),var(--navy)); }
+.card:hover .card-ico svg{ color:#fff; }
+.sec-deep .card{ background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.12); }
+.sec-deep .card p{ color:rgba(242,247,245,.72); }
+
+/* Track cards, numbered because tracks are officially numbered 1–4 */
+.track-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.track-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow-3); }
+.track-head{
+  display:flex; align-items:flex-start; gap:16px;
+  padding:24px 26px;
+  background:linear-gradient(120deg,rgba(14,122,60,.07),rgba(18,58,107,.07));
+  border-bottom:1px solid var(--line);
+}
+.track-no{
+  flex-shrink:0; width:46px; height:46px; border-radius:12px;
+  background:linear-gradient(140deg,var(--navy),var(--green));
+  color:#fff; display:grid; place-items:center;
+  font-family:var(--f-mono); font-weight:700; font-size:1rem;
+  box-shadow:0 4px 12px rgba(18,58,107,.28);
+}
+.track-head h3{ margin:0; font-size:1.12rem; }
+.track-head .track-tag{ font-family:var(--f-mono); font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-3); display:block; margin-bottom:5px; }
+.track-body{ padding:22px 26px; }
+.track-body ul{ margin:0; padding-left:0; list-style:none; }
+.track-body li{
+  position:relative; padding-left:24px; margin-bottom:11px;
+  font-size:.92rem; color:var(--tx-2); line-height:1.55;
+}
+.track-body li::before{
+  content:""; position:absolute; left:0; top:.55em;
+  width:9px; height:9px; border-radius:2px;
+  background:var(--gold); transform:rotate(45deg);
+  transition:background .2s var(--ease);
+}
+.track-body li:hover::before{ background:var(--green); }
+.track-body li:last-child{ margin-bottom:0; }
+
+/* ---------- Stats ---------- */
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.stat{
+  text-align:center; padding:28px 16px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-lg);
+  transition:all .3s var(--ease);
+}
+.stat:hover{ transform:translateY(-6px); background:rgba(255,255,255,.1); border-color:var(--gold); }
+.stat-num{ font-family:var(--f-display); font-weight:800; font-size:clamp(1.9rem,3.6vw,2.7rem); color:var(--gold-lt); line-height:1; letter-spacing:-.03em; }
+.stat-lbl{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(242,247,245,.62); margin-top:10px; }
+
+/* ---------- Feature pills (what happens at the conference) ---------- */
+.features{ display:grid; grid-template-columns:repeat(6,1fr); gap:14px; }
+.feat{
+  text-align:center; padding:24px 12px;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r); transition:all .3s var(--ease);
+}
+.feat:hover{ transform:translateY(-6px); box-shadow:var(--shadow-2); border-color:var(--green); }
+.feat-ico{
+  width:52px; height:52px; margin:0 auto 14px; border-radius:50%;
+  display:grid; place-items:center;
+  background:linear-gradient(140deg,var(--green),var(--navy));
+  transition:transform .35s var(--ease);
+}
+.feat:hover .feat-ico{ transform:scale(1.12) rotate(8deg); }
+.feat-ico svg{ width:24px; height:24px; color:#fff; }
+.feat-lbl{ font-size:.78rem; font-weight:700; line-height:1.3; color:var(--ink); text-transform:uppercase; letter-spacing:.04em; }
+
+/* ---------- Timeline ---------- */
+.timeline{ position:relative; padding-left:38px; }
+.timeline::before{ content:""; position:absolute; left:11px; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg,var(--green),var(--gold)); }
+.tl-item{ position:relative; margin-bottom:26px; }
+.tl-item:last-child{ margin-bottom:0; }
+.tl-dot{
+  position:absolute; left:-33px; top:4px;
+  width:24px; height:24px; border-radius:50%;
+  background:var(--surface); border:3px solid var(--green);
+  display:grid; place-items:center;
+  transition:all .3s var(--ease);
+}
+.tl-dot::after{ content:""; width:7px; height:7px; border-radius:50%; background:var(--green); }
+.tl-item:hover .tl-dot{ transform:scale(1.2); border-color:var(--gold); box-shadow:0 0 0 6px rgba(192,138,30,.15); }
+.tl-item:hover .tl-dot::after{ background:var(--gold); }
+.tl-date{ font-family:var(--f-mono); font-size:.8rem; font-weight:700; color:var(--green); letter-spacing:.04em; }
+.tl-title{ font-family:var(--f-display); font-weight:700; font-size:1.05rem; color:var(--ink); margin:2px 0 4px; }
+.tl-note{ font-size:.9rem; color:var(--tx-2); margin:0; }
+.tl-item.is-final .tl-dot{ border-color:var(--gold); background:var(--gold); }
+.tl-item.is-final .tl-dot::after{ background:#fff; }
+.tl-item.is-final .tl-date{ color:var(--gold); }
+
+/* ---------- Tabs ---------- */
+.tabs{ display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap; }
+.tab{
+  padding:11px 24px;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-pill);
+  font-family:var(--f-body); font-weight:600; font-size:.88rem; color:var(--tx-2);
+  cursor:pointer; transition:all .25s var(--ease);
+}
+.tab:hover{ border-color:var(--green); color:var(--green); transform:translateY(-2px); }
+.tab.active{
+  background:linear-gradient(135deg,var(--navy),var(--green));
+  color:#fff; border-color:transparent;
+  box-shadow:0 5px 16px rgba(18,58,107,.3);
+}
+.tab-panel{ display:none; animation:fadeUp .45s var(--ease); }
+.tab-panel.active{ display:block; }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
+
+/* ---------- Schedule ---------- */
+.sched{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; }
+.sched-row{
+  display:grid; grid-template-columns:170px 1fr;
+  gap:24px; padding:20px 26px;
+  border-bottom:1px solid var(--line);
+  transition:background .25s var(--ease);
+}
+.sched-row:last-child{ border-bottom:none; }
+.sched-row:hover{ background:var(--surface-2); }
+.sched-time{ font-family:var(--f-mono); font-size:.83rem; font-weight:700; color:var(--green); letter-spacing:.02em; }
+.sched-title{ font-family:var(--f-display); font-weight:700; font-size:1.02rem; color:var(--ink); margin-bottom:4px; }
+.sched-desc{ font-size:.9rem; color:var(--tx-2); margin:0; }
+.sched-row.is-break{ background:linear-gradient(90deg,rgba(192,138,30,.07),transparent); }
+.sched-row.is-break .sched-time{ color:var(--gold); }
+.sched-tag{
+  display:inline-block; margin-top:7px; padding:3px 11px;
+  font-family:var(--f-mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+  background:rgba(18,58,107,.09); color:var(--navy); border-radius:var(--r-pill);
+}
+
+/* ---------- People ---------- */
+.person{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:26px 22px; text-align:center;
+  transition:all .3s var(--ease);
+}
+.person:hover{ transform:translateY(-6px); box-shadow:var(--shadow-3); border-color:var(--green); }
+.person-av{
+  width:74px; height:74px; margin:0 auto 16px; border-radius:50%;
+  background:linear-gradient(140deg,var(--navy),var(--green));
+  display:grid; place-items:center;
+  font-family:var(--f-display); font-weight:800; font-size:1.4rem; color:#fff;
+  box-shadow:0 6px 18px rgba(18,58,107,.28);
+  transition:transform .35s var(--ease);
+}
+.person:hover .person-av{ transform:scale(1.08); }
+.person-av.tba{ background:linear-gradient(140deg,var(--line-2),var(--tx-3)); font-size:.72rem; letter-spacing:.06em; }
+.person-name{ font-family:var(--f-display); font-weight:700; font-size:1.02rem; color:var(--ink); margin-bottom:3px; }
+.person-role{ font-size:.83rem; color:var(--green); font-weight:600; margin-bottom:4px; }
+.person-org{ font-size:.8rem; color:var(--tx-3); margin:0; }
+
+.namelist{ columns:3; column-gap:28px; list-style:none; padding:0; margin:0; }
+.namelist li{
+  break-inside:avoid; padding:10px 14px; margin-bottom:8px;
+  background:var(--surface); border:1px solid var(--line);
+  border-left:3px solid var(--gold);
+  border-radius:var(--r-sm);
+  font-size:.87rem; color:var(--tx-2);
+  transition:all .22s var(--ease);
+}
+.namelist li:hover{ border-left-color:var(--green); transform:translateX(4px); box-shadow:var(--shadow-1); color:var(--ink); }
+.namelist strong{ display:block; color:var(--ink); font-weight:600; }
+.namelist span{ font-size:.78rem; color:var(--tx-3); }
+
+/* ---------- Accordion ---------- */
+.acc{ border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--surface); margin-bottom:12px; transition:box-shadow .25s var(--ease); }
+.acc:hover{ box-shadow:var(--shadow-1); }
+.acc-btn{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:18px 22px; background:none; border:none; cursor:pointer;
+  font-family:var(--f-display); font-weight:700; font-size:1rem; color:var(--ink);
+  text-align:left; transition:color .2s var(--ease);
+}
+.acc-btn:hover{ color:var(--green); }
+.acc-btn .chev{ width:18px; height:18px; flex-shrink:0; color:var(--green); transition:transform .3s var(--ease); }
+.acc.open .acc-btn .chev{ transform:rotate(180deg); }
+.acc.open .acc-btn{ color:var(--green); }
+.acc-body{ max-height:0; overflow:hidden; transition:max-height .4s var(--ease); }
+.acc-inner{ padding:0 22px 20px; color:var(--tx-2); font-size:.93rem; }
+.acc-inner p:last-child,.acc-inner ul:last-child{ margin-bottom:0; }
+
+/* ---------- Tables ---------- */
+.table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--r-lg); background:var(--surface); }
+table{ width:100%; border-collapse:collapse; min-width:560px; }
+thead th{
+  background:linear-gradient(135deg,var(--navy),var(--navy-dp));
+  color:#fff; text-align:left; padding:15px 20px;
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+}
+tbody td{ padding:15px 20px; border-bottom:1px solid var(--line); font-size:.92rem; color:var(--tx-2); }
+tbody tr:last-child td{ border-bottom:none; }
+tbody tr{ transition:background .22s var(--ease); }
+tbody tr:hover{ background:var(--surface-2); }
+tbody td:first-child{ font-weight:600; color:var(--ink); }
+td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-size:1rem; }
+
+/* ---------- Checklist ---------- */
+.checklist{ list-style:none; padding:0; margin:0; }
+.checklist li{
+  display:flex; align-items:flex-start; gap:12px;
+  padding:11px 0; border-bottom:1px dashed var(--line);
+  font-size:.92rem; color:var(--tx-2); line-height:1.55;
+}
+.checklist li:last-child{ border-bottom:none; }
+.checklist svg{ width:18px; height:18px; flex-shrink:0; color:var(--green); margin-top:2px; }
+
+/* ---------- Notes / callouts ---------- */
+.note{
+  display:flex; gap:14px; align-items:flex-start;
+  padding:18px 20px; border-radius:var(--r);
+  background:rgba(192,138,30,.08); border:1px solid rgba(192,138,30,.28);
+  font-size:.9rem; color:var(--tx-2);
+}
+.note svg{ width:19px; height:19px; flex-shrink:0; color:var(--gold); margin-top:2px; }
+.note strong{ color:var(--ink); }
+.note p:last-child{ margin-bottom:0; }
+.note.ok{ background:rgba(14,122,60,.07); border-color:rgba(14,122,60,.26); }
+.note.ok svg{ color:var(--green); }
+.note.info{ background:rgba(18,58,107,.06); border-color:rgba(18,58,107,.22); }
+.note.info svg{ color:var(--navy); }
+
+/* ---------- Side panel ---------- */
+.panel{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:26px;
+  box-shadow:var(--shadow-1);
+}
+.panel-title{
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--tx-3); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--line);
+}
+.panel-row{ display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px dashed var(--line); font-size:.88rem; }
+.panel-row:last-of-type{ border-bottom:none; }
+.panel-row dt{ color:var(--tx-2); }
+.panel-row dd{ margin:0; font-family:var(--f-mono); font-weight:700; color:var(--ink); text-align:right; white-space:nowrap; }
+.panel dl{ margin:0; }
+
+/* ---------- Forms ---------- */
+.form-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.field{ display:flex; flex-direction:column; gap:7px; }
+.field.full{ grid-column:1 / -1; }
+.field label{ font-size:.83rem; font-weight:600; color:var(--ink); }
+.field label .req{ color:#C0392B; }
+.field input,.field select,.field textarea{
+  width:100%; padding:12px 15px;
+  font-family:var(--f-body); font-size:.92rem; color:var(--tx);
+  background:var(--surface); border:1.5px solid var(--line-2);
+  border-radius:var(--r-sm);
+  transition:all .22s var(--ease);
+}
+.field textarea{ resize:vertical; min-height:120px; }
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none; border-color:var(--green); box-shadow:0 0 0 4px rgba(14,122,60,.12);
+}
+.field .hint{ font-size:.76rem; color:var(--tx-3); }
+.file-drop{
+  border:2px dashed var(--line-2); border-radius:var(--r);
+  padding:32px 20px; text-align:center; cursor:pointer;
+  transition:all .25s var(--ease); background:var(--surface-2);
+}
+.file-drop:hover{ border-color:var(--green); background:rgba(14,122,60,.05); }
+.file-drop svg{ width:32px; height:32px; color:var(--green); margin:0 auto 10px; }
+.file-drop .fd-main{ font-weight:600; color:var(--ink); font-size:.92rem; }
+.file-drop .fd-sub{ font-size:.78rem; color:var(--tx-3); margin-top:4px; }
+.form-msg{
+  display:none; margin-top:18px; padding:15px 18px;
+  border-radius:var(--r); font-size:.9rem;
+  background:rgba(14,122,60,.09); border:1px solid rgba(14,122,60,.3); color:#0a5f2e;
+}
+.form-msg.show{ display:flex; gap:11px; align-items:flex-start; animation:fadeUp .4s var(--ease); }
+.form-msg svg{ width:19px; height:19px; flex-shrink:0; }
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background:linear-gradient(120deg,var(--navy-dp) 0%,var(--navy) 45%,#0E5A38 110%);
+  color:var(--tx-inv); padding:62px 0; text-align:center; position:relative; overflow:hidden;
+}
+.cta-band::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(circle at 20% 30%,rgba(229,185,78,.14),transparent 45%),radial-gradient(circle at 80% 70%,rgba(67,176,42,.14),transparent 45%);
+}
+.cta-band .wrap{ position:relative; z-index:2; }
+.cta-band h2{ color:#fff; margin-bottom:12px; }
+.cta-band p{ color:rgba(242,247,245,.78); max-width:600px; margin:0 auto 28px; }
+.cta-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------- Footer ---------- */
+.site-footer{ background:#08192B; color:#9FB3C4; padding:56px 0 0; font-size:.9rem; }
+.foot-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:38px; padding-bottom:40px; }
+.foot-brand{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.foot-brand .brand-title{ color:#fff; }
+.foot-brand .brand-sub{ color:#66808F; }
+.site-footer h4{
+  color:#fff; font-family:var(--f-mono); font-size:.72rem;
+  letter-spacing:.16em; text-transform:uppercase; margin-bottom:16px;
+}
+.site-footer ul{ list-style:none; padding:0; margin:0; }
+.site-footer li{ margin-bottom:9px; }
+.site-footer a{ color:#9FB3C4; transition:all .2s var(--ease); display:inline-block; }
+.site-footer a:hover{ color:var(--gold-lt); transform:translateX(4px); }
+.foot-contact li{ display:flex; gap:11px; align-items:flex-start; }
+.foot-contact svg{ width:16px; height:16px; color:var(--green-br); flex-shrink:0; margin-top:3px; }
+.foot-contact a:hover{ transform:none; }
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:20px 0; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  font-size:.8rem; color:#66808F;
+}
+.foot-bottom a{ color:#66808F; }
+
+/* ---------- Scroll reveal ---------- */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+
+/* ---------- Back to top ---------- */
+.totop{
+  position:fixed; right:22px; bottom:22px; z-index:150;
+  width:46px; height:46px; border-radius:50%;
+  background:linear-gradient(135deg,var(--green),var(--navy));
+  border:none; cursor:pointer; display:grid; place-items:center;
+  box-shadow:var(--shadow-2);
+  opacity:0; visibility:hidden; transform:translateY(14px);
+  transition:all .3s var(--ease);
+}
+.totop.show{ opacity:1; visibility:visible; transform:none; }
+.totop:hover{ transform:translateY(-4px); box-shadow:var(--shadow-3); }
+.totop svg{ width:19px; height:19px; color:#fff; }
+
+/* ---------- Utilities ---------- */
+.mb0{ margin-bottom:0; } .mb16{ margin-bottom:16px; } .mb24{ margin-bottom:24px; } .mb32{ margin-bottom:32px; }
+.mt24{ margin-top:24px; } .mt32{ margin-top:32px; } .mt40{ margin-top:40px; }
+.lead{ font-size:1.06rem; color:var(--tx-2); line-height:1.72; }
+.tag{
+  display:inline-block; padding:5px 13px; margin:0 6px 6px 0;
+  background:var(--surface-2); border:1px solid var(--line);
+  border-radius:var(--r-pill);
+  font-size:.78rem; color:var(--tx-2);
+  transition:all .22s var(--ease);
+}
+.tag:hover{ background:var(--green); color:#fff; border-color:var(--green); transform:translateY(-2px); }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  .nav-list{
+    position:fixed; top:0; right:0; bottom:0; width:min(340px,86vw);
+    background:var(--surface); flex-direction:column; align-items:stretch;
+    padding:96px 20px 32px; gap:4px; overflow-y:auto;
+    box-shadow:-8px 0 40px rgba(10,26,43,.2);
+    transform:translateX(100%); transition:transform .38s var(--ease);
+    z-index:180;
+  }
+  .nav-list.open{ transform:none; }
+  .nav-link{ justify-content:space-between; padding:13px 16px; border-radius:10px; font-size:.95rem; }
+  .dropdown{
+    position:static; transform:none; opacity:1; visibility:visible; pointer-events:auto;
+    box-shadow:none; border:none; border-left:2px solid var(--line);
+    border-radius:0; margin:2px 0 6px 16px; padding:0 0 0 8px;
+    min-width:0; max-height:0; overflow:hidden; transition:max-height .35s var(--ease);
+  }
+  .nav-item.open .dropdown{ max-height:520px; }
+  .nav-item:hover .dropdown{ transform:none; }
+  .nav-item.open > .nav-link .caret{ transform:rotate(180deg); }
+  .nav-item:hover > .nav-link{ background:none; color:var(--tx-2); box-shadow:none; }
+  .nav-item.open > .nav-link,.nav-link.active{ background:linear-gradient(180deg,var(--gold-lt),var(--gold)); color:var(--ink); }
+  .burger{ display:flex; z-index:190; }
+  .nav-cta{ display:none; }
+  .nav-scrim{ position:fixed; inset:0; background:rgba(10,26,43,.5); opacity:0; visibility:hidden; transition:all .3s var(--ease); z-index:170; }
+  .nav-scrim.show{ opacity:1; visibility:visible; }
+  .g4{ grid-template-columns:repeat(2,1fr); }
+  .g-split{ grid-template-columns:1fr; gap:32px; }
+  .features{ grid-template-columns:repeat(3,1fr); }
+  .namelist{ columns:2; }
+  .cd-unit{ min-width:92px; padding:13px 8px 10px; }
+}
+
+@media (max-width:820px){
+  .g3{ grid-template-columns:1fr; }
+  .stats{ grid-template-columns:repeat(2,1fr); }
+  .sec{ padding:58px 0; }
+  .cd-unit{ min-width:76px; padding:11px 6px 9px; border-radius:12px; }
+  .cd-sep{ padding-top:12px; }
+  .cd-lbl{ font-size:.52rem; letter-spacing:.12em; }
+  .sched-row{ grid-template-columns:1fr; gap:6px; }
+  .foot-grid{ grid-template-columns:repeat(2,1fr); gap:30px; }
+  .hero{ padding:52px 0 44px; }
+}
+
+@media (max-width:640px){
+  body{ font-size:16px; }
+  .g2{ grid-template-columns:1fr; }
+  .form-grid{ grid-template-columns:1fr; }
+  .features{ grid-template-columns:repeat(2,1fr); }
+  .namelist{ columns:1; }
+  .topbar-links{ display:none; }
+  .countdown{ gap:3px; }
+  .cd-unit{ min-width:0; flex:1; padding:9px 3px 8px; }
+  .cd-sep{ display:none; }
+  .cd-num{ font-size:1.45rem; }
+  .cd-lbl{ font-size:.48rem; letter-spacing:.08em; margin-top:6px; }
+  .dchip{ padding:8px 13px; gap:8px; }
+  .dchip-lbl{ font-size:.62rem; }
+  .dchip-val{ font-size:.76rem; }
+  .card,.panel{ padding:22px; }
+  .btn{ width:100%; }
+  .hero-actions .btn,.cta-actions .btn{ width:100%; }
+  .foot-grid{ grid-template-columns:1fr; }
+  .track-head{ padding:18px 18px; gap:12px; }
+  .track-body{ padding:18px; }
+}
+
+@media (max-width:400px){
+  .cd-num{ font-size:1.2rem; }
+  .brand-title{ font-size:1rem; }
+  .brand-sub{ font-size:.55rem; }
+  .brand-mark{ width:40px; height:40px; }
+  .stats{ grid-template-columns:1fr; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  .reveal{ opacity:1; transform:none; }
+}
+
+@media print{
+  .site-header,.topbar,.totop,.cta-band,.nav-scrim{ display:none !important; }
+  body{ background:#fff; }
+  .hero,.pbanner,.sec-deep{ background:#fff !important; color:#000 !important; }
+}
+/* ===== TOPBAR ICON + TEXT ALIGNMENT ===== */
+
+.topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.topbar-links a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    height: 38px;
+    line-height: 1;
+}
+
+.topbar-links a svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+    padding: 0;
+
+    flex: 0 0 18px;
+
+    transform: none;
+    position: static;
+}
+
+.person-phone {
+    margin-top: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+}
+
+.person-phone svg {
+    display: block;
+
+    width: 16px;
+    height: 16px;
+
+    flex: 0 0 16px;
+}
+
+.person-phone a {
+    display: block;
+    line-height: 1;
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span class="topbar-org">School of Computer Science and Engineering (SoCSE) &middot; RV University</span>
+    <span class="topbar-links">
+      <a href="contact.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg> icccit2027@rvu.edu.in</a>
+      <a href="venue.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bengaluru, India</a>
+    </span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.4"/><circle cx="4.5" cy="6" r="1.7"/><circle cx="19.5" cy="6" r="1.7"/><circle cx="4.5" cy="18" r="1.7"/><circle cx="19.5" cy="18" r="1.7"/><line x1="6" y1="7" x2="10" y2="10.5"/><line x1="18" y1="7" x2="14" y2="10.5"/><line x1="6" y1="17" x2="10" y2="13.5"/><line x1="18" y1="17" x2="14" y2="13.5"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-title">ICCCIT 2027</span>
+        <span class="brand-sub">RV University &middot; Bengaluru</span>
+      </span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item has-drop"><a class="nav-link" href="about.html">About<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="about.html#overview">About the Conference</a></li><li><a href="about.html#rvu">About RV University</a></li><li><a href="about.html#socse">About SoCSE</a></li><li><a href="about.html#objectives">Objectives</a></li><li><a href="about.html#audience">Who Should Attend</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="authors.html">Authors<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="authors.html#cfp">Call for Papers</a></li><li><a href="authors.html#tracks">Conference Tracks</a></li><li><a href="authors.html#guidelines">Submission Guidelines</a></li><li><a href="authors.html#publication">Publication</a></li><li><a href="authors.html#dates">Important Dates</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="programme.html">Programme<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="programme.html#schedule">Conference Schedule</a></li><li><a href="programme.html#speakers">Keynote Speakers</a></li><li><a href="programme.html#formats">Session Formats</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="committees.html">Committees<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="committees.html#leadership">Patrons &amp; Leadership</a></li><li><a href="committees.html#organizing">Organizing Committee</a></li><li><a href="committees.html#tpc">Technical Programme Committee</a></li><li><a href="committees.html#advisory">Advisory Committee</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="registration.html">Registration<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="registration.html#fees">Registration Fees</a></li><li><a href="registration.html#how">How to Register</a></li><li><a href="registration.html#included">What's Included</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="venue.html">Venue<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="venue.html#location">Conference Venue</a></li><li><a href="venue.html#travel">Getting Here</a></li><li><a href="venue.html#stay">Accommodation</a></li><li><a href="venue.html#city">Explore Bengaluru</a></li></ul></li><li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li><li class="nav-item"><a class="nav-cta" href="submit-paper.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Submit Paper</a></li></ul>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-scrim"></div>
+<main>
+
+<section class="pbanner">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span>Contact</span></div>
+    <h1>Contact</h1>
+    <p>Reach the ICCCIT 2027 conference secretariat at the School of Computer Science and Engineering (SoCSE), RV University.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head ctr">
+      <span class="kicker">Conference contacts</span>
+      <h2>Talk to the organisers</h2>
+      <p>For submissions, registration, programme or hospitality questions, contact any of the three conference
+        contact persons directly, or email the secretariat.</p>
+    </div>
+    <div class="grid g3"><article class="person reveal" data-delay="0">
+      <div class="person-av">GVS</div>
+      <div class="person-name">Dr. G. Vennira Selvi</div>
+      <div class="person-role">Professor</div>
+      <p class="person-org">SoCSE, RV University</p>
+      <p class="person-org person-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+        </svg>
+      
+        <a href="tel:+919894204770">
+          +91 98942 04770
+        </a>
+      </p>
+    </article><article class="person reveal" data-delay="80">
+      <div class="person-av">KSK</div>
+      <div class="person-name">Dr. K. Sailaja Kumar</div>
+      <div class="person-role">Associate Professor</div>
+      <p class="person-org">SoCSE, RV University</p>
+      <p class="person-org person-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+        </svg>
+      
+        <a href="tel:+919900495605">
+          +91 99004 95605
+        </a>
+      </p>
+    </article><article class="person reveal" data-delay="160">
+      <div class="person-av">RP</div>
+      <div class="person-name">Prof. Rahul Panja</div>
+      <div class="person-role">Assistant Professor</div>
+      <p class="person-org">SoCSE, RV University</p>
+      <p class="person-org person-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+        </svg>
+      
+        <a href="tel:+918900055446">
+          +91 89000 55446
+        </a>
+      </p>
+    </article></div>
+  </div>
+</section>
+
+<section class="sec sec-tint">
+  <div class="wrap">
+    <div class="g-split">
+      <div class="reveal">
+        <span class="kicker">Send a message</span>
+        <h2>Write to the secretariat</h2>
+        <p>Use the form for general enquiries. For anything tied to a specific paper, include your paper ID so the
+          secretariat can route it to the right chair.</p>
+        <form data-demo-form novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-name">Full name <span class="req">*</span></label>
+              <input type="text" id="c-name" name="name" required placeholder="Dr. A. Sharma">
+            </div>
+            <div class="field">
+              <label for="c-email">Email address <span class="req">*</span></label>
+              <input type="email" id="c-email" name="email" required placeholder="you@institution.edu">
+            </div>
+            <div class="field">
+              <label for="c-org">Institution or organisation</label>
+              <input type="text" id="c-org" name="org" placeholder="Department, University">
+            </div>
+            <div class="field">
+              <label for="c-topic">What is this about? <span class="req">*</span></label>
+              <select id="c-topic" name="topic" required>
+                <option value="">Choose a topic</option>
+                <option>Paper submission</option>
+                <option>Review process</option>
+                <option>Registration and payment</option>
+                <option>Publication and proceedings</option>
+                <option>Programme and presentation</option>
+                <option>Visa invitation letter</option>
+                <option>Special session or tutorial proposal</option>
+                <option>Sponsorship</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="c-paper">Paper ID <span class="hint" style="font-weight:400">— if your message is about a specific submission</span></label>
+              <input type="text" id="c-paper" name="paper" placeholder="ICCCIT2027-000">
+            </div>
+            <div class="field full">
+              <label for="c-msg">Your message <span class="req">*</span></label>
+              <textarea id="c-msg" name="message" required placeholder="Tell us what you need. The more specific you are, the faster the secretariat can help."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt24"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>Send message</button>
+          <div class="form-msg"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="16 9.5 10.8 15 8 12.3"/></svg>
+            <span><strong>Message sent.</strong> This is a demo form — connect it to your mail handler to receive
+              submissions. The secretariat aims to reply within two working days.</span>
+          </div>
+        </form>
+      </div>
+      <aside class="reveal" data-delay="120">
+        <div class="panel mb24">
+          <div class="panel-title">Conference secretariat</div>
+          <ul class="checklist">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg><span><strong>Email</strong><br><a href="mailto:icccit2027@rvu.edu.in">icccit2027@rvu.edu.in</a></span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span><strong>Address</strong><br>School of Computer Science and Engineering (SoCSE),<br>RV University, Bengaluru, India</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>Response time</strong><br>Within two working days (Mon–Fri, IST)</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="panel-title">Conference at a glance</div>
+          <dl>
+            <div class="panel-row"><dt>Dates</dt><dd>19–20 Mar 2027</dd></div>
+            <div class="panel-row"><dt>Venue</dt><dd style="white-space:normal;text-align:right;font-size:.78rem">Homi J Bhabha Hall, RV University</dd></div>
+            <div class="panel-row"><dt>Paper deadline</dt><dd>30 Nov 2026</dd></div>
+            <div class="panel-row"><dt>Notification</dt><dd>15 Dec 2026</dd></div>
+            <div class="panel-row"><dt>Registration</dt><dd>15 Feb 2027</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap narrow">
+    <div class="sec-head ctr">
+      <span class="kicker">Frequently asked</span>
+      <h2>Questions the secretariat gets most</h2>
+      <p>If your question is not here, use the form above or call one of the contact persons.</p>
+    </div>
+    <div class="acc open">
+      <button class="acc-btn" aria-expanded="true">When does the call for papers close?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>The paper submission deadline is 30 November 2026. Acceptance notifications go out on 15 December 2026, and the camera-ready version is due 30 January 2027.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">What format should my paper follow?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>Springer CCIS formatting guidelines. Download the official LaTeX or Word template from Springer's conference proceedings guidelines page and do not modify the margins, fonts or spacing.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">Will my paper be published?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>Accepted and presented papers will be submitted for publication in the Springer Communications in Computer and Information Science (CCIS) proceedings series, subject to Springer's editorial policies and approval. Publication is not guaranteed in advance of that review.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">Is the review process anonymous?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>Yes. Review is double-blind, so remove all author names, affiliations, acknowledgements and self-identifying references from the manuscript before uploading. All submissions are also screened with iThenticate.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">Do I have to attend in person to be published?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>At least one author of each accepted paper must register and present the paper during the conference. Papers that are not presented will not be forwarded for publication.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">Can I submit to more than one track?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>No — submit each paper to the single track that best matches its primary contribution. The technical programme committee may reassign a paper to a different track if that gives it a better-matched set of reviewers.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">Are the registration fees final?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>Not yet. The fees currently shown on the registration page are indicative and are being approved. Final fees will be confirmed before registration opens, and the secretariat will never ask for payment outside the official channels.</p></div></div>
+    </div><div class="acc">
+      <button class="acc-btn" aria-expanded="false">Can I get a visa invitation letter?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="acc-body"><div class="acc-inner"><p>Yes, once your paper is accepted. Email the secretariat with your acceptance notification, passport details and institutional affiliation, and allow several weeks for processing.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Got what you need?</h2>
+    <p>Submissions close 30 November 2026. There is still time to get a paper in.</p>
+    <div class="cta-actions">
+      <a class="btn btn-gold" href="submit-paper.html"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Submit your paper</a>
+      <a class="btn btn-ghost" href="authors.html#guidelines">Read the guidelines <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="brand-mark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.4"/><circle cx="4.5" cy="6" r="1.7"/><circle cx="19.5" cy="6" r="1.7"/><circle cx="4.5" cy="18" r="1.7"/><circle cx="19.5" cy="18" r="1.7"/><line x1="6" y1="7" x2="10" y2="10.5"/><line x1="18" y1="7" x2="14" y2="10.5"/><line x1="6" y1="17" x2="10" y2="13.5"/><line x1="18" y1="17" x2="14" y2="13.5"/></svg></span>
+          <span class="brand-text">
+            <span class="brand-title">ICCCIT 2027</span>
+            <span class="brand-sub">an initiative of RV Educational Institutions</span>
+          </span>
+        </div>
+        <p style="max-width:340px">International Conference on Computing, Communication and Intelligent Technologies, hosted by the School of Computer Science and Engineering (SoCSE), RV University, Bengaluru.</p>
+        <p style="color:#66808F;font-size:.84rem">19–20 March 2027 &middot; Homi J Bhabha Hall, RV University</p>
+      </div>
+      <div><h4>Conference</h4><ul><li><a href="about.html">About the Conference</a></li><li><a href="authors.html#cfp">Call for Papers</a></li><li><a href="authors.html#tracks">Conference Tracks</a></li><li><a href="programme.html">Programme</a></li><li><a href="committees.html">Committees</a></li></ul></div>
+      <div><h4>For Authors</h4><ul><li><a href="authors.html#guidelines">Submission Guidelines</a></li><li><a href="authors.html#dates">Important Dates</a></li><li><a href="authors.html#publication">Publication</a></li><li><a href="registration.html#fees">Registration Fees</a></li><li><a href="submit-paper.html">Submit a Paper</a></li></ul></div>
+      <div>
+        <h4>Conference Secretariat</h4>
+        <ul class="foot-contact">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Homi J Bhabha Hall, RV University,<br>RV University, Bengaluru, India</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg><a href="mailto:icccit2027@rvu.edu.in">icccit2027@rvu.edu.in</a></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+919894204770">+91 98942 04770</a></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+919900495605">+91 99004 95605</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026–2027 ICCCIT 2027, RV University. All rights reserved.</span>
+      <span><a href="contact.html">Contact</a> &middot; <a href="authors.html#guidelines">Author Guidelines</a> &middot; <a href="submit-paper.html">Submit Paper</a></span>
+    </div>
+  </div>
+</footer>
+<button class="totop" aria-label="Back to top"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+<script>
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Sticky header ---------- */
+  var header = document.querySelector('.site-header');
+  function onScroll() {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 12);
+    var tt = document.querySelector('.totop');
+    if (tt) tt.classList.toggle('show', window.scrollY > 460);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Mobile nav ---------- */
+  var burger = document.querySelector('.burger');
+  var navList = document.querySelector('.nav-list');
+  var scrim = document.querySelector('.nav-scrim');
+
+  function closeNav() {
+    if (burger) burger.classList.remove('open');
+    if (navList) navList.classList.remove('open');
+    if (scrim) scrim.classList.remove('show');
+    document.body.style.overflow = '';
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+  }
+  if (burger && navList) {
+    burger.addEventListener('click', function () {
+      var open = navList.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      if (scrim) scrim.classList.toggle('show', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  if (scrim) scrim.addEventListener('click', closeNav);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+
+  /* Accordion-style dropdowns on mobile */
+  document.querySelectorAll('.nav-item.has-drop > .nav-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      if (window.innerWidth <= 1080) {
+        e.preventDefault();
+        var item = link.parentElement;
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.nav-item.open').forEach(function (n) { n.classList.remove('open'); });
+        item.classList.toggle('open', !wasOpen);
+      }
+    });
+  });
+  document.querySelectorAll('.dropdown a').forEach(function (a) {
+    a.addEventListener('click', function () { if (window.innerWidth <= 1080) closeNav(); });
+  });
+  window.addEventListener('resize', function () { if (window.innerWidth > 1080) closeNav(); });
+
+  /* ---------- Back to top ---------- */
+  var totop = document.querySelector('.totop');
+  if (totop) totop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  });
+
+  /* ---------- Scroll reveal ---------- */
+  var revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en, i) {
+        if (en.isIntersecting) {
+          var d = parseInt(en.target.dataset.delay || 0, 10);
+          setTimeout(function () { en.target.classList.add('in'); }, d);
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealables.forEach(function (el) { io.observe(el); });
+  } else {
+    revealables.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Countdown ---------- */
+  var cd = document.querySelector('[data-countdown]');
+  if (cd) {
+    var target = new Date(cd.dataset.countdown).getTime();
+    var elD = cd.querySelector('[data-d]'), elH = cd.querySelector('[data-h]'),
+        elM = cd.querySelector('[data-m]'), elS = cd.querySelector('[data-s]');
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    function tick() {
+      var diff = target - Date.now();
+      if (diff < 0) diff = 0;
+      var s = Math.floor(diff / 1000);
+      if (elD) elD.textContent = pad(Math.floor(s / 86400));
+      if (elH) elH.textContent = pad(Math.floor(s % 86400 / 3600));
+      if (elM) elM.textContent = pad(Math.floor(s % 3600 / 60));
+      if (elS) elS.textContent = pad(s % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ---------- Animated counters ---------- */
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var end = parseFloat(el.dataset.count);
+        var suffix = el.dataset.suffix || '';
+        if (reduced) { el.textContent = end + suffix; cio.unobserve(el); return; }
+        var t0 = null, dur = 1400;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(end * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        cio.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
+  /* ---------- Tabs ---------- */
+  document.querySelectorAll('[data-tabs]').forEach(function (group) {
+    var btns = group.querySelectorAll('.tab');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.dataset.tab;
+        btns.forEach(function (b) { b.classList.toggle('active', b === btn); b.setAttribute('aria-selected', b === btn); });
+        group.querySelectorAll('.tab-panel').forEach(function (p) {
+          p.classList.toggle('active', p.dataset.panel === id);
+        });
+      });
+    });
+  });
+
+  /* ---------- Accordions ---------- */
+  document.querySelectorAll('.acc').forEach(function (acc) {
+    var btn = acc.querySelector('.acc-btn');
+    var body = acc.querySelector('.acc-body');
+    if (!btn || !body) return;
+    if (acc.classList.contains('open')) body.style.maxHeight = body.scrollHeight + 'px';
+    btn.addEventListener('click', function () {
+      var open = acc.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+    });
+  });
+  window.addEventListener('resize', function () {
+    document.querySelectorAll('.acc.open .acc-body').forEach(function (b) { b.style.maxHeight = b.scrollHeight + 'px'; });
+  });
+
+  /* ---------- Demo forms ---------- */
+  document.querySelectorAll('[data-demo-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var msg = form.querySelector('.form-msg');
+      if (msg) { msg.classList.add('show'); msg.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }); }
+      form.reset();
+    });
+  });
+  document.querySelectorAll('.file-drop').forEach(function (drop) {
+    var input = drop.querySelector('input[type=file]');
+    var main = drop.querySelector('.fd-main');
+    if (!input) return;
+    drop.addEventListener('click', function () { input.click(); });
+    input.addEventListener('change', function () {
+      if (input.files.length && main) main.textContent = input.files[0].name;
+    });
+  });
+
+  /* ---------- Hero network canvas ---------- */
+  var canvas = document.getElementById('net-canvas');
+  if (canvas && !reduced) {
+    var ctx = canvas.getContext('2d');
+    var nodes = [], W = 0, H = 0, raf;
+    function size() {
+      var r = canvas.parentElement.getBoundingClientRect();
+      W = canvas.width = r.width; H = canvas.height = r.height;
+      var count = Math.min(64, Math.max(24, Math.round(W / 26)));
+      nodes = [];
+      for (var i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.32, vy: (Math.random() - 0.5) * 0.32,
+          r: Math.random() * 1.7 + 0.9
+        });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+        for (var j = i + 1; j < nodes.length; j++) {
+          var m = nodes[j], dx = n.x - m.x, dy = n.y - m.y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 132) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(120,200,150,' + (0.2 * (1 - d / 132)) + ')';
+            ctx.lineWidth = 0.7;
+            ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
+          }
+        }
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(180,225,200,.5)';
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    size(); draw();
+    var rt;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 180); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { cancelAnimationFrame(raf); } else { raf = requestAnimationFrame(draw); }
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

@@ -791,6 +791,46 @@ li{ margin-bottom:.4em; }
   gap: 22px;
 }
 
+#organizing .person {
+  background: #fff;
+  border: 1px solid rgba(15, 45, 65, 0.12);
+  border-radius: 24px;
+  padding: 26px 20px 24px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(15, 45, 65, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+
+/* ---------- Top green accent ---------- */
+
+#organizing .person::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 4px;
+
+  background: #07875b;
+  border-radius: 0 0 8px 8px;
+}
+
+
+/* ---------- Hover ---------- */
+
+#organizing .person:hover {
+  transform: translateY(-5px);
+  border-color: #07875b;
+  box-shadow: 0 14px 30px rgba(15, 45, 65, 0.10);
+}
+
 /* ============================================================
    TECHNICAL ADVISORY COMMITTEE
    ============================================================ */

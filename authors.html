@@ -64,6 +64,16 @@
 
 html{ scroll-behavior:smooth; scroll-padding-top:100px; }
 
+/* ---------- Justified content paragraphs ---------- */
+.sec > .wrap > .g-split p,
+.card p,
+.track-body li,
+.acc-inner p,
+.note p,
+.lead {
+  text-align: justify;
+}
+
 body{
   margin:0;
   font-family:var(--f-body);
@@ -1079,7 +1089,7 @@ td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-si
         <dl>
           <div class="panel-row"><dt>Format</dt><dd>Springer CCIS</dd></div>
           <div class="panel-row"><dt>Review</dt><dd>Double-blind</dd></div>
-          <div class="panel-row"><dt>Similarity check</dt><dd>iThenticate</dd></div>
+          <div class="panel-row"><dt>Similarity check</dt><dd>Turnitin</dd></div>
           <div class="panel-row"><dt>Language</dt><dd>English</dd></div>
           <div class="panel-row"><dt>Tracks</dt><dd>4</dd></div>
           <div class="panel-row"><dt>Paper deadline</dt><dd>30 Nov 2026</dd></div>
@@ -1142,7 +1152,7 @@ td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-si
       <div class="acc-body"><div class="acc-inner"><p>Papers must follow the Springer CCIS formatting guidelines. Use the official LaTeX or Word template from Springer's Conference Proceedings Guidelines page and do not alter margins, fonts or spacing.</p></div></div>
     </div><div class="acc">
       <button class="acc-btn" aria-expanded="false">Similarity screening<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-      <div class="acc-body"><div class="acc-inner"><p>All submissions will be checked using iThenticate. Manuscripts exceeding the accepted similarity threshold will be returned without review.</p></div></div>
+      <div class="acc-body"><div class="acc-inner"><p>All submissions will be checked using Turnitin. Manuscripts exceeding the accepted similarity threshold will be returned without review.</p></div></div>
     </div><div class="acc">
       <button class="acc-btn" aria-expanded="false">Anonymity<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="acc-body"><div class="acc-inner"><p>Review is double-blind. Remove author names, affiliations, acknowledgements and any self-identifying references from the manuscript before uploading. Cite your own prior work in the third person.</p></div></div>
@@ -1176,7 +1186,7 @@ td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-si
           <h3>How a paper reaches print</h3>
           <ul class="checklist">
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="color:rgba(242,247,245,.78)">Submit an anonymised manuscript in Springer CCIS format</span></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="color:rgba(242,247,245,.78)">Pass iThenticate similarity screening</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="color:rgba(242,247,245,.78)">Pass Turnitin similarity screening</span></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="color:rgba(242,247,245,.78)">Clear double-blind review by 3+ reviewers</span></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="color:rgba(242,247,245,.78)">Submit the camera-ready version and copyright form</span></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="color:rgba(242,247,245,.78)">Register and present the paper at the conference</span></li>

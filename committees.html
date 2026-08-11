@@ -551,7 +551,7 @@ li{ margin-bottom:.4em; }
   background:rgba(18,58,107,.09); color:var(--navy); border-radius:var(--r-pill);
 }
 
-/* ---------- People ---------- */
+<!-- /* ---------- People ---------- */
 .person{
   background:var(--surface); border:1px solid var(--line);
   border-radius:var(--r-lg); padding:26px 22px; text-align:center;
@@ -583,7 +583,450 @@ li{ margin-bottom:.4em; }
 }
 .namelist li:hover{ border-left-color:var(--green); transform:translateX(4px); box-shadow:var(--shadow-1); color:var(--ink); }
 .namelist strong{ display:block; color:var(--ink); font-weight:600; }
-.namelist span{ font-size:.78rem; color:var(--tx-3); }
+.namelist span{ font-size:.78rem; color:var(--tx-3); } -->
+
+/* ============================================================
+   COMPACT LEADERSHIP CARDS
+   ============================================================ */
+
+#leadership .person {
+  background: #fff;
+  border: 1px solid rgba(15, 45, 65, 0.12);
+  border-radius: 24px;
+  padding: 26px 20px 24px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(15, 45, 65, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#leadership .person:hover {
+  transform: translateY(-5px);
+  border-color: #07875b;
+  box-shadow: 0 14px 30px rgba(15, 45, 65, 0.10);
+}
+
+
+/* ---------- Top green accent ---------- */
+
+#leadership .person::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 4px;
+  background: #07875b;
+  border-radius: 0 0 8px 8px;
+}
+
+
+/* ---------- Image ---------- */
+
+#leadership .person-av {
+  width: 112px;
+  height: 112px;
+  margin: 4px auto 18px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #eef6f3;
+
+  border: 3px solid #d8e9e4;
+
+  box-shadow:
+    0 6px 18px rgba(15, 45, 65, 0.10);
+}
+
+#leadership .person-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ---------- Position ---------- */
+
+#leadership .person-name {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #0b1f33;
+
+  margin: 0 0 10px;
+}
+
+
+/* ---------- Person / designation ---------- */
+
+#leadership .person-role {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #07875b;
+
+  margin: 0 auto 8px;
+
+  max-width: 260px;
+}
+
+
+/* ---------- Institution ---------- */
+
+#leadership .person-org {
+  font-size: .95rem;
+  line-height: 1.4;
+  color: #8195a3;
+
+  margin: 0;
+}
+
+
+/* ---------- Grid spacing ---------- */
+
+#leadership .grid.g4 {
+  gap: 22px;
+}
+
+/* ============================================================
+   ORGANIZING COMMITTEE CARDS
+   ============================================================ */
+
+#organizing .person {
+  background: #fff;
+  border: 1px solid rgba(15, 45, 65, 0.12);
+  border-radius: 24px;
+  padding: 26px 20px 24px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(15, 45, 65, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  transition: transform .25s ease,
+              box-shadow .25s ease,
+              border-color .25s ease;
+}
+
+
+/* ---------- Hover ---------- */
+
+#organizing .person:hover {
+  transform: translateY(-5px);
+  border-color: #07875b;
+  box-shadow: 0 14px 30px rgba(15, 45, 65, 0.10);
+}
+
+
+/* ---------- Image ---------- */
+
+#organizing .person-av {
+  width: 112px;
+  height: 112px;
+  margin: 4px auto 18px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #eef6f3;
+
+  border: 3px solid #d8e9e4;
+
+  box-shadow:
+    0 6px 18px rgba(15, 45, 65, 0.10);
+}
+
+
+#organizing .person-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ---------- Position ---------- */
+
+#organizing .person-name {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #0b1f33;
+
+  margin: 0 0 10px;
+}
+
+
+/* ---------- Person / designation ---------- */
+
+#organizing .person-role {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #07875b;
+
+  margin: 0 auto 8px;
+
+  max-width: 260px;
+}
+
+
+/* ---------- Institution ---------- */
+
+#organizing .person-org {
+  font-size: .95rem;
+  line-height: 1.4;
+  color: #8195a3;
+
+  margin: 0;
+}
+
+
+/* ---------- Grid spacing ---------- */
+
+#organizing .grid {
+  gap: 22px;
+}
+
+/* ============================================================
+   TECHNICAL ADVISORY COMMITTEE
+   ============================================================ */
+
+#advisory {
+  background: #f5f8f7;
+
+  border-top: 1px solid rgba(15, 45, 65, 0.06);
+  border-bottom: 1px solid rgba(15, 45, 65, 0.06);
+
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+
+/* ---------- Advisory introductory text ---------- */
+
+#advisory .sec-head {
+  margin-bottom: 0;
+}
+
+
+/* ---------- Advisory group ---------- */
+
+#advisory .advisory-group {
+  margin-top: 34px;
+}
+
+
+#advisory .national-advisory {
+  margin-top: 48px;
+}
+
+
+/* ============================================================
+   ADVISORY COMMITTEE HEADING
+   ============================================================ */
+
+#advisory .advisory-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+
+#advisory .advisory-heading span {
+  height: 1px;
+
+  flex: 1;
+
+  background: rgba(15, 45, 65, 0.10);
+}
+
+
+#advisory .advisory-heading h3 {
+  margin: 0;
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: 1.05rem;
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  color: #0b1f33;
+
+  white-space: nowrap;
+}
+
+
+
+/* ============================================================
+   ADVISORY MEMBERS
+   TWO MEMBERS PER ROW
+   ============================================================ */
+
+#advisory .advisory-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px 18px;
+}
+
+
+/* ---------- Small member card ---------- */
+
+#advisory .advisory-member {
+  background: #fff;
+
+  border: 1px solid rgba(15, 45, 65, 0.09);
+
+  border-radius: 10px;
+
+  padding: 14px 18px;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+
+/* ---------- Hover ---------- */
+
+#advisory .advisory-member:hover {
+  transform: translateY(-2px);
+
+  border-color: #07875b;
+
+  background: #fff;
+
+  box-shadow:
+    0 7px 20px rgba(15, 45, 65, 0.07);
+}
+
+
+/* ---------- Member name ---------- */
+
+#advisory .advisory-name {
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: 1rem;
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  color: #0b1f33;
+
+  margin-bottom: 5px;
+}
+
+
+/* ---------- Affiliation ---------- */
+
+#advisory .advisory-affiliation {
+  font-family: "Instrument Sans", sans-serif;
+
+  font-size: .86rem;
+  line-height: 1.45;
+
+  font-weight: 400;
+
+  color: #78909e;
+}
+
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  #leadership .grid.g4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #organizing .grid.g3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #advisory .advisory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  /* ---------- Leadership ---------- */
+
+  #leadership .grid.g4 {
+    grid-template-columns: 1fr;
+  }
+
+  #leadership .person {
+    padding: 24px 18px 22px;
+  }
+
+
+  /* ---------- Organizing ---------- */
+
+  #organizing .grid.g3 {
+    grid-template-columns: 1fr;
+  }
+
+  #organizing .person {
+    padding: 24px 18px 22px;
+  }
+
+
+  /* ---------- Advisory ---------- */
+
+  #advisory {
+    padding-top: 55px;
+    padding-bottom: 60px;
+  }
+
+  #advisory .advisory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #advisory .advisory-heading {
+    gap: 10px;
+  }
+
+  #advisory .advisory-heading h3 {
+    font-size: .95rem;
+    text-align: center;
+  }
+
+  #advisory .advisory-member {
+    padding: 13px 15px;
+  }
+
+  #advisory .advisory-name {
+    font-size: .95rem;
+  }
+
+  #advisory .advisory-affiliation {
+    font-size: .82rem;
+  }
+
+}
 
 /* ---------- Accordion ---------- */
 .acc{ border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--surface); margin-bottom:12px; transition:box-shadow .25s var(--ease); }
@@ -917,7 +1360,7 @@ td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-si
   </div>
 </section>
 
-<section class="sec">
+<!-- <section class="sec">
   <div class="wrap">
     <div class="note info"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <div><strong>Committee announcements in progress.</strong>
@@ -925,37 +1368,65 @@ td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-si
         confirmed and will be published here as they are finalised. The conference contact persons below are confirmed.</p></div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="sec" id="leadership" style="padding-top:0">
+<section class="sec" id="leadership" style="padding-top:40px">
   <div class="wrap">
+
     <div class="sec-head ctr">
       <span class="kicker">Patrons &amp; leadership</span>
-      <h2>Institutional leadership</h2>
-      <p>ICCCIT 2027 is held under the patronage of RV University's leadership and chaired from the School of
-        Computer Science and Engineering.</p>
+      <h2>Institutional Leadership</h2>
+      <p>
+        ICCCIT 2027 is held under the patronage of RV University's leadership
+        and chaired from the School of Computer Science and Engineering.
+      </p>
     </div>
-    <div class="grid g4"><article class="person reveal" data-delay="0">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Chief Patron</div>
-      <div class="person-role">Chancellor</div>
-      <p class="person-org">RV University</p>
-    </article><article class="person reveal" data-delay="80">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Patron</div>
-      <div class="person-role">Vice Chancellor</div>
-      <p class="person-org">RV University</p>
-    </article><article class="person reveal" data-delay="160">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Patron</div>
-      <div class="person-role">Registrar</div>
-      <p class="person-org">RV University</p>
-    </article><article class="person reveal" data-delay="240">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">General Chair</div>
-      <div class="person-role">Dean, School of Computer Science and Engineering</div>
-      <p class="person-org">RV University</p>
-    </article></div>
+
+    <div class="grid g4">
+
+      <!-- Chief Patron -->
+      <article class="person reveal" data-delay="0">
+        <div class="person-av">
+          <img src="images/chanchellor.png" alt="Chief Patron">
+        </div>
+        <div class="person-name">Chief Patron</div>
+        <div class="person-role">Dr. (H.C.) A.V.S. Murthy</div>
+        <p class="person-org">Chancellor, RV University</p>
+      </article>
+
+      <!-- Patron - Vice Chancellor -->
+      <article class="person reveal" data-delay="80">
+        <div class="person-av">
+          <img src="images/Ram-Kumar-Kakani.png" alt="Vice Chancellor">
+        </div>
+        <div class="person-name">Patron</div>
+        <div class="person-role">Prof. Ram Kumar Kakani</div>
+        <p class="person-org">Vice Chancellor, RV University</p>
+      </article>
+
+      <!-- Patron - Registrar -->
+      <article class="person reveal" data-delay="160">
+        <div class="person-av">
+          <img src="images/Prof.-Sahana-D.-Gowda.png" alt="Registrar">
+        </div>
+        <div class="person-name">Patron</div>
+        <div class="person-role">Prof. Sahana D. Gowda</div>
+        <p class="person-org">Registrar, RV University</p>
+      </article>
+
+      <!-- General Chair -->
+      <article class="person reveal" data-delay="240">
+        <div class="person-av">
+          <img src="images/dean socse.png" alt="General Chair">
+        </div>
+        <div class="person-name">General Chair</div>
+        <div class="person-role">
+          Dean, School of Computer Science and Engineering
+        </div>
+        <p class="person-org">RV University</p>
+      </article>
+
+    </div>
   </div>
 </section>
 
@@ -966,123 +1437,455 @@ td .fee{ font-family:var(--f-mono); font-weight:700; color:var(--green); font-si
       <h2>Running the conference</h2>
       <p>The organizing committee handles the programme, submissions, publication, registration and hospitality.</p>
     </div>
-    <div class="grid g4"><article class="person reveal" data-delay="0">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Conference Convener</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="70">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Conference Co-Convener</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="140">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Technical Programme Chair</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="210">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Publication Chair</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="0">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Publicity Chair</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="70">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Finance Chair</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="140">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Registration Chair</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article><article class="person reveal" data-delay="210">
-      <div class="person-av tba">TBA</div>
-      <div class="person-name">Hospitality Chair</div>
-      <div class="person-role">To be confirmed</div>
-      <p class="person-org">SoCSE, RV University</p>
-    </article></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head ctr">
-      <span class="kicker">Conference contacts</span>
-      <h2>Who to reach</h2>
-      <p>For submission, registration or programme questions, contact any of the conference contact persons directly.</p>
-    </div>
-    <div class="grid g3"><article class="person reveal" data-delay="0">
-      <div class="person-av">GVS</div>
-      <div class="person-name">Dr. G. Vennira Selvi</div>
-      <div class="person-role">Professor</div>
-      <p class="person-org">SoCSE, RV University<br>
-        <a href="tel:+919894204770">+91 98942 04770</a></p>
-    </article><article class="person reveal" data-delay="80">
-      <div class="person-av">KSK</div>
-      <div class="person-name">Dr. K. Sailaja Kumar</div>
-      <div class="person-role">Associate Professor</div>
-      <p class="person-org">SoCSE, RV University<br>
-        <a href="tel:+919900495605">+91 99004 95605</a></p>
-    </article><article class="person reveal" data-delay="160">
-      <div class="person-av">RP</div>
-      <div class="person-name">Prof. Rahul Panja</div>
-      <div class="person-role">Assistant Professor</div>
-      <p class="person-org">SoCSE, RV University<br>
-        <a href="tel:+918900055446">+91 89000 55446</a></p>
-    </article></div>
-    <div class="note ok mt32"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>
-      <div><p class="mb0">General enquiries: <a href="mailto:icccit2027@rvu.edu.in">icccit2027@rvu.edu.in</a> &mdash;
-        the secretariat aims to reply within two working days.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-deep" id="tpc">
-  <div class="wrap">
-    <div class="sec-head ctr">
-      <span class="kicker">Technical programme committee</span>
-      <h2>How papers are judged</h2>
-      <p>The technical programme committee is responsible for the integrity of the review process across all four tracks.</p>
-    </div>
-    <div class="grid g4"><article class="card reveal" data-delay="0">
-      <div class="card-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Assign and oversee double-blind review</h3><p>Each paper is allocated to at least three reviewers with matching expertise, with authors and reviewers kept mutually anonymous.</p>
-    </article><article class="card reveal" data-delay="80">
-      <div class="card-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>Run similarity screening</h3><p>All manuscripts pass through iThenticate before review. Papers over the accepted threshold are returned without further assessment.</p>
-    </article><article class="card reveal" data-delay="160">
-      <div class="card-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3>Balance the four tracks</h3><p>The committee places each accepted paper in the session where it will get the most informed discussion.</p>
-    </article><article class="card reveal" data-delay="240">
-      <div class="card-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></div><h3>Select best paper awards</h3><p>Award decisions combine reviewer scores with the quality of the presentation delivered at the conference.</p>
-    </article></div>
-    <div class="note info mt40" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>
-      <div><strong style="color:#fff">Join the review panel.</strong>
-      <p class="mb0" style="color:rgba(242,247,245,.72)">ICCCIT 2027 is recruiting reviewers across all four tracks.
-        If you hold a doctorate and publish in a relevant area, write to
-        <a href="mailto:icccit2027@rvu.edu.in" style="color:var(--gold-lt)">icccit2027@rvu.edu.in</a> with your area of expertise
-        and a link to your publication profile.</p></div>
+    <div class="grid g3">
+    
+      <article class="person reveal" data-delay="0">
+    
+        <div class="person-av">
+          <img src="images/Dr.-G.-Vennira-Selvi-1.png" alt="Conference Convener">
+        </div>
+    
+        <div class="person-name">
+          Conference Convener
+        </div>
+    
+        <div class="person-role">
+          Dr. G. Vennira Selvi
+        </div>
+    
+        <p class="person-org">
+          Professor, SoCSE, RV University
+        </p>
+    
+      </article>
+    
+    
+      <article class="person reveal" data-delay="80">
+    
+        <div class="person-av">
+          <img src="images/K-Sailaja-Kumar-1.png" alt="Conference Co-Convener">
+        </div>
+    
+        <div class="person-name">
+          Conference Co-Convener
+        </div>
+    
+        <div class="person-role">
+          Dr. K Sailaja Kumar
+        </div>
+    
+        <p class="person-org">
+          Associate Professor, SoCSE, RV University
+        </p>
+    
+      </article>
+    
+    
+      <article class="person reveal" data-delay="160">
+    
+        <div class="person-av">
+          <img src="images/picture.png" alt="Conference Co-Convener">
+        </div>
+    
+        <div class="person-name">
+          Conference Co-Convener
+        </div>
+    
+        <div class="person-role">
+          Mr. Rahul Panja
+        </div>
+    
+        <p class="person-org">
+          Assistant Professor, SoCSE, RV University
+        </p>
+    
+      </article>
+    
     </div>
   </div>
 </section>
 
 <section class="sec" id="advisory">
   <div class="wrap">
+
     <div class="sec-head ctr">
-      <span class="kicker">Advisory committee</span>
-      <h2>International advisory panel</h2>
-      <p>The advisory committee brings external perspective from academia and industry, in India and abroad.</p>
+      <span class="kicker">Technical Advisory Committee</span>
+      <h2>Technical Advisory Committee</h2>
+      <p>
+        The Technical Advisory Committee brings together distinguished
+        academics and researchers from institutions across India and around
+        the world.
+      </p>
     </div>
-    <div class="note"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <div><strong>Advisory committee roster to be published.</strong>
-      <p class="mb0">Invitations to the international advisory committee are still going out. The full list of members,
-        with affiliations and countries, will appear here before registration opens. If you would like to nominate a
-        member, contact <a href="mailto:icccit2027@rvu.edu.in">icccit2027@rvu.edu.in</a>.</p></div>
+
+
+    <!-- =====================================================
+         INTERNATIONAL TECHNICAL ADVISORY COMMITTEE
+         ===================================================== -->
+
+    <div class="advisory-group">
+
+      <div class="advisory-heading">
+        <span></span>
+        <h3>International Technical Advisory Committee</h3>
+        <span></span>
+      </div>
+
+      <div class="advisory-grid">
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. George Ghinea</div>
+          <div class="advisory-affiliation">
+            Brunel University, United Kingdom
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Rajkumar Buyya</div>
+          <div class="advisory-affiliation">
+            The University of Melbourne, Australia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Jayabrabu Ramakrishnan</div>
+          <div class="advisory-affiliation">
+            Department of Information Technology and Security,
+            Jazan University, Saudi Arabia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Yong-Zong Chen</div>
+          <div class="advisory-affiliation">
+            Department of Communication Engineering, Dayeh University, Taiwan
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Maode Ma</div>
+          <div class="advisory-affiliation">
+            Nanyang Technological University, Singapore
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Chow Chee Onn</div>
+          <div class="advisory-affiliation">
+            Faculty of Engineering, University of Malaya, Malaysia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Rosula Reyes</div>
+          <div class="advisory-affiliation">
+            Ateneo de Manila University, Philippines
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Frank Wang</div>
+          <div class="advisory-affiliation">
+            University of Kent Canterbury, United Kingdom
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Danilo Pelusi</div>
+          <div class="advisory-affiliation">
+            Professor, University of Teramo, Italy
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Jawahir Binti Che Mustapha</div>
+          <div class="advisory-affiliation">
+            University of Kuala Lumpur, Malaysia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Rajasekaran Selvaraju</div>
+          <div class="advisory-affiliation">
+            University of Technology and Applied Sciences, Oman
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Gopal Rathinam</div>
+          <div class="advisory-affiliation">
+            University of Buraimi, Oman
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. NV Kousik</div>
+          <div class="advisory-affiliation">
+            Ardn University, London, United Kingdom
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Ramya</div>
+          <div class="advisory-affiliation">
+            West England University, London, United Kingdom
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Sheimom</div>
+          <div class="advisory-affiliation">
+            Arab Open University, Oman
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Viji Prakash</div>
+          <div class="advisory-affiliation">
+            British University, Vietnam
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. M. Aravindhan</div>
+          <div class="advisory-affiliation">
+            The American University of Science, Vietnam
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Gomathi K.</div>
+          <div class="advisory-affiliation">
+            Department of Information Systems, Imam Abdul Rahman Bin Faisal
+            University, Saudi Arabia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Rajesh Natarajan</div>
+          <div class="advisory-affiliation">
+            Information Technology, University of Technology and Applied
+            Sciences, Oman
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Jasem M. Alostad</div>
+          <div class="advisory-affiliation">
+            College of Basic Education, Public Authority for Applied
+            Education and Training, Kuwait
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Victor C. M. Leung</div>
+          <div class="advisory-affiliation">
+            University of British Columbia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Sundaravadivazhagn Balasubaramanian</div>
+          <div class="advisory-affiliation">
+            University of Technology and Applied Sciences-Al Mussanah, Oman
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Ancy Micheal</div>
+          <div class="advisory-affiliation">
+            Institute of Computer Science and Digital Innovation,
+            UCSI University, Kuala Lumpur
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Emerson Raja</div>
+          <div class="advisory-affiliation">
+            Faculty of Engineering and Technology, Multimedia University,
+            Malaysia
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Karimulla Syed Mohammad</div>
+          <div class="advisory-affiliation">
+            University of Technology and Applied Sciences, Shinas, Oman
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Saravana Balaji B</div>
+          <div class="advisory-affiliation">
+            De Montfort University Kazakhstan, Kazakhstan
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Siva Shankar Ramasamy</div>
+          <div class="advisory-affiliation">
+            Chiang Mai University, Thailand
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Vedhapriyavadhana Rajamani</div>
+          <div class="advisory-affiliation">
+            University of West of Scotland, London Campus
+          </div>
+        </article>
+
+      </div>
     </div>
+
+
+    <!-- =====================================================
+         NATIONAL ADVISORY COMMITTEE
+         ===================================================== -->
+
+    <div class="advisory-group national-advisory">
+
+      <div class="advisory-heading">
+        <span></span>
+        <h3>National Advisory Committee</h3>
+        <span></span>
+      </div>
+
+      <div class="advisory-grid">
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. N. Poonguzhali</div>
+          <div class="advisory-affiliation">
+            Associate Professor, Jawaharlal Nehru University, New Delhi
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Venkatesan</div>
+          <div class="advisory-affiliation">
+            Associate Professor, NIT, Karaikal
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. S. Ganapathy</div>
+          <div class="advisory-affiliation">
+            Associate Professor, Department of CSE, NITTTR, Bhopal
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. M. Prasad</div>
+          <div class="advisory-affiliation">
+            Associate Professor, VIT, Chennai
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Kanagaraj</div>
+          <div class="advisory-affiliation">
+            Associate Professor, VIT, Vellore
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Nithya</div>
+          <div class="advisory-affiliation">
+            Associate Professor, VIT, Vellore
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Sheja Kumari</div>
+          <div class="advisory-affiliation">
+            Professor, School of CSE, SAVEETHA University, Chennai
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Subrata Choudry</div>
+          <div class="advisory-affiliation">
+            Associate Professor, SVCET, Andhra Pradesh
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. T. GaneshKumar</div>
+          <div class="advisory-affiliation">
+            Professor, Galgotius University, New Delhi
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Dhanapoquiom</div>
+          <div class="advisory-affiliation">
+            Professor, Manakulavinayaga College of Engineering and
+            Technology, Pondicherry
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Y. Vishnu Srinivasa Murthy</div>
+          <div class="advisory-affiliation">
+            Associate Professor, Department of Information and Communication
+            Technology, Manipal Institute of Technology Bengaluru, MAHE
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Renuka Devi</div>
+          <div class="advisory-affiliation">
+            Professor, School of Information Science, Presidency University,
+            Bengaluru
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. R. Gopi</div>
+          <div class="advisory-affiliation">
+            Professor, Dhanalakshmi Srinivasan Engineering College, Tirichy
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. M. Prabu</div>
+          <div class="advisory-affiliation">
+            Associate Professor, Department of CSE, NIT Calicut, Kerala
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Konguvel E.</div>
+          <div class="advisory-affiliation">
+            VIT, Vellore
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. P. Ashok</div>
+          <div class="advisory-affiliation">
+            Symbiosis Institute of Digital and Telecom Management,
+            SIU, Pune
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. Sasikumar A.</div>
+          <div class="advisory-affiliation">
+            SRM Institute of Science and Technology, India
+          </div>
+        </article>
+
+        <article class="advisory-member">
+          <div class="advisory-name">Dr. M. Karthikeyan</div>
+          <div class="advisory-affiliation">
+            Siddharth Institute of Engineering &amp; Technology, India
+          </div>
+        </article>
+
+      </div>
+    </div>
+
   </div>
 </section>
 

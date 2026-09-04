@@ -1034,7 +1034,7 @@
       color: rgba(242, 247, 245, .72);
     }
 
-    /* Track cards, numbered because tracks are officially numbered 1–3 */
+    /* Track cards, numbered because tracks are officially numbered 1–2 */
     .track-card {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -1125,6 +1125,62 @@
 
     .track-body li:last-child {
       margin-bottom: 0;
+    }
+
+    /* Sub-tracks: each track is divided into four of them. */
+    .subtrack {
+      padding: 20px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .subtrack:first-child {
+      padding-top: 0;
+    }
+
+    .subtrack:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .subtrack h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      font-family: var(--f-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .sub-no {
+      flex-shrink: 0;
+      display: inline-grid;
+      place-items: center;
+      min-width: 36px;
+      height: 22px;
+      padding: 0 8px;
+      border-radius: var(--r-pill);
+      background: linear-gradient(180deg, var(--gold-lt), var(--gold));
+      color: var(--navy-dp);
+      font-family: var(--f-mono);
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .sub-list {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 46px;
+    }
+
+    @media (max-width:640px) {
+      .sub-list {
+        padding-left: 0;
+      }
     }
 
     /* ---------- Stats ---------- */
@@ -1961,6 +2017,29 @@
       padding-bottom: 40px;
     }
 
+    .foot-org {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      max-width: 340px;
+    }
+
+    .foot-org-lbl {
+      display: block;
+      font-family: var(--f-mono);
+      font-size: .6rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #66808F;
+      margin-bottom: 12px;
+    }
+
+    .foot-org img {
+      height: 46px;
+      width: auto;
+      display: block;
+    }
+
     .foot-brand {
       display: flex;
       align-items: center;
@@ -2155,33 +2234,138 @@
       border: 0;
     }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width:1080px) {
+    /* ---------- Mobile navigation drawer ---------- */
+    /* The drawer opens below 1200px because the full desktop bar needs about
+       1250px before it starts overflowing the viewport. */
+    .nav-head,
+    .nav-drawer-foot {
+      display: none;
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .topbar-logo {
+      height: 26px;
+      width: auto;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    @media (min-width:1201px) and (max-width:1360px) {
+
+      /* Just above the drawer breakpoint the bar is tight, so trim it
+         rather than let it overflow. */
+      .nav {
+        gap: 12px;
+      }
+
+      .nav-list {
+        gap: 0;
+      }
+
+      .nav-link {
+        padding: 9px 9px;
+        font-size: .82rem;
+      }
+
+      .nav-cta {
+        padding: 10px 15px;
+        font-size: .8rem;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-title {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width:1200px) {
+
+      /* backdrop-filter turns the header into the containing block for its
+         position:fixed children, which is what clipped the open drawer to the
+         height of the header bar. Dropping it restores viewport-relative
+         fixing, so the drawer fills the screen again. */
+      .site-header,
+      .site-header.scrolled {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: #fff;
+      }
+
+      /* Stops the off-screen drawer from creating a sideways scrollbar.
+         clip (not hidden) keeps the sticky header working. */
+      body {
+        overflow-x: clip;
+      }
+
       .nav-list {
         position: fixed;
-        top: 0;
+        top: var(--drawer-top, 112px);
         right: 0;
         bottom: 0;
-        width: min(340px, 86vw);
+        width: min(360px, 88vw);
         background: var(--surface);
         flex-direction: column;
         align-items: stretch;
-        padding: 96px 20px 32px;
+        padding: 0 16px calc(28px + env(safe-area-inset-bottom, 0px));
         gap: 4px;
         overflow-y: auto;
-        box-shadow: -8px 0 40px rgba(10, 26, 43, .2);
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: -10px 0 44px rgba(10, 26, 43, .24);
+        border-left: 1px solid var(--line);
         transform: translateX(100%);
-        transition: transform .38s var(--ease);
-        z-index: 180;
+        visibility: hidden;
+        transition: transform .34s var(--ease), visibility 0s linear .34s;
+        z-index: 190;
       }
 
       .nav-list.open {
         transform: none;
+        visibility: visible;
+        transition: transform .34s var(--ease), visibility 0s linear 0s;
+      }
+
+      .nav-head {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        margin: 0 -16px 10px;
+        padding: 15px 16px 13px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-head img {
+        height: 30px;
+        width: auto;
+        flex-shrink: 0;
+      }
+
+      .nav-head span {
+        font-family: var(--f-mono);
+        font-size: .55rem;
+        letter-spacing: .11em;
+        text-transform: uppercase;
+        color: var(--tx-3);
+        line-height: 1.4;
       }
 
       .nav-link {
         justify-content: space-between;
-        padding: 13px 16px;
+        padding: 13px 14px;
         border-radius: 10px;
         font-size: .95rem;
       }
@@ -2196,7 +2380,7 @@
         border: none;
         border-left: 2px solid var(--line);
         border-radius: 0;
-        margin: 2px 0 6px 16px;
+        margin: 2px 0 6px 14px;
         padding: 0 0 0 8px;
         min-width: 0;
         max-height: 0;
@@ -2205,7 +2389,7 @@
       }
 
       .nav-item.open .dropdown {
-        max-height: 520px;
+        max-height: 900px;
       }
 
       .nav-item:hover .dropdown {
@@ -2230,11 +2414,40 @@
 
       .burger {
         display: flex;
-        z-index: 190;
+        position: relative;
+        z-index: 210;
       }
 
+      /* Submit Paper stays in the drawer as a full-width button instead of
+         being hidden on small screens. */
       .nav-cta {
-        display: none;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 16px;
+        padding: 14px 20px;
+        font-size: .92rem;
+      }
+
+      .nav-cta:hover {
+        transform: none;
+      }
+
+      .nav-drawer-foot {
+        display: block;
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        font-family: var(--f-mono);
+        font-size: .6rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--tx-3);
+        line-height: 1.7;
+      }
+
+      .nav-drawer-foot a {
+        color: var(--green);
       }
 
       .nav-scrim {
@@ -2243,15 +2456,18 @@
         background: rgba(10, 26, 43, .5);
         opacity: 0;
         visibility: hidden;
-        transition: all .3s var(--ease);
-        z-index: 170;
+        transition: opacity .3s var(--ease), visibility .3s var(--ease);
+        z-index: 150;
       }
 
       .nav-scrim.show {
         opacity: 1;
         visibility: visible;
       }
+    }
 
+    /* ---------- Responsive ---------- */
+    @media (max-width:1080px) {
       .g4 {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -2472,12 +2688,8 @@
 
     /* ===== TOPBAR ICON + TEXT ALIGNMENT ===== */
 
-    .topbar-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
+    /* .topbar-links display lives in the base rule above so the small-screen
+       overrides at the end of this stylesheet are not fighting it. */
     .topbar-links a {
       display: flex;
       align-items: center;
@@ -2524,13 +2736,102 @@
       display: block;
       line-height: 1;
     }
+
+    /* ===== SMALL-SCREEN TOPBAR =====
+       Kept at the end of the stylesheet: the alignment rules above are
+       unconditional, so anything earlier loses to them. */
+    @media (max-width:760px) {
+      .topbar .wrap {
+        flex-wrap: nowrap;
+        gap: 12px;
+        min-height: 44px;
+      }
+
+      .topbar-org {
+        display: none;
+      }
+
+      .topbar-logo {
+        height: 24px;
+      }
+
+      .topbar-links {
+        display: flex;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .topbar-links a {
+        font-size: .72rem;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* Venue link drops out first — it is already in the hero and footer. */
+      .topbar-links a+a {
+        display: none;
+      }
+    }
+
+    @media (max-width:380px) {
+      .topbar-links a span {
+        display: none;
+      }
+    }
+
+    /* ===== SMALL-SCREEN LAYOUT =====
+       A grid track sized `1fr` still refuses to go below the min-content of
+       its widest item, so the wide facts panels and the dates table were
+       stretching their column past the viewport and getting clipped.
+       minmax(0,1fr) lets the column shrink; min-width:0 lets the items
+       follow, so .table-wrap can finally use its own overflow-x. */
+    @media (max-width:1080px) {
+
+      .g-split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .g-split>*,
+      .grid>* {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width:640px) {
+
+      /* dd was nowrap, which set the floor for the whole column. */
+      .panel-row {
+        flex-wrap: wrap;
+        gap: 2px 14px;
+      }
+
+      .panel-row dd {
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .table-wrap {
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .table-wrap table {
+        min-width: 460px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="topbar">
     <div class="wrap">
-      <span class="topbar-org">School of Computer Science and Engineering (SoCSE) &middot; RV University</span>
+      <span class="topbar-brand">
+        <img class="topbar-logo" src="images/rvu-logo.png" alt="RV University" width="512" height="258" loading="lazy"
+          decoding="async">
+        <span class="topbar-org">School of Computer Science and Engineering (SoCSE) &middot; RV University</span>
+      </span>
       <span class="topbar-links">
         <a href="contact.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2567,6 +2868,10 @@
       </a>
       <nav aria-label="Main navigation">
         <ul class="nav-list">
+          <li class="nav-head">
+            <img src="images/rvu-logo.png" alt="RV University" width="512" height="258" loading="lazy" decoding="async">
+            <span>School of Computer<br>Science and Engineering</span>
+          </li>
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item has-drop"><a class="nav-link" href="about.html">About<svg class="caret" width="11"
                 height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -2646,6 +2951,10 @@
                 <polyline points="17 8 12 3 7 8" />
                 <line x1="12" y1="3" x2="12" y2="15" />
               </svg>Submit Paper</a></li>
+          <li class="nav-drawer-foot">
+            ICCCIT 2027 &middot; 19&ndash;20 March 2027<br>
+            <a href="mailto:icccit2027@rvu.edu.in">icccit2027@rvu.edu.in</a>
+          </li>
         </ul>
         <!-- <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item has-drop"><a class="nav-link" href="about.html">About<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="about.html#overview">About the Conference</a></li><li><a href="about.html#rvu">About RV University</a></li><li><a href="about.html#socse">About SoCSE</a></li><li><a href="about.html#objectives">Objectives</a></li><li><a href="about.html#audience">Who Should Attend</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="authors.html">Authors<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="authors.html#cfp">Call for Papers</a></li><li><a href="authors.html#tracks">Conference Tracks</a></li><li><a href="authors.html#guidelines">Submission Guidelines</a></li><li><a href="authors.html#publication">Publication</a></li><li><a href="authors.html#dates">Important Dates</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="programme.html">Programme<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="programme.html#schedule">Conference Schedule</a></li><li><a href="programme.html#speakers">Keynote Speakers</a></li><li><a href="programme.html#formats">Session Formats</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="committees.html">Committees<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="committees.html#leadership">Patrons &amp; Leadership</a></li><li><a href="committees.html#organizing">Organizing Committee</a></li><li><a href="committees.html#tpc">Technical Programme Committee</a></li><li><a href="committees.html#advisory">Advisory Committee</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="registration.html">Registration<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="registration.html#fees">Registration Fees</a></li><li><a href="registration.html#how">How to Register</a></li><li><a href="registration.html#included">What's Included</a></li></ul></li><li class="nav-item has-drop"><a class="nav-link" href="venue.html">Venue<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><ul class="dropdown"><li><a href="venue.html#location">Conference Venue</a></li><li><a href="venue.html#travel">Getting Here</a></li><li><a href="venue.html#stay">Accommodation</a></li><li><a href="venue.html#city">Explore Bengaluru</a></li></ul></li><li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li><li class="nav-item"><a class="nav-cta" href="submit-paper.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Submit Paper</a></li></ul> -->
       </nav>
@@ -2926,15 +3235,17 @@
           </div>
         </div>
         <div class="acc">
-          <button class="acc-btn" aria-expanded="false">Can I submit to more than one track?<svg class="chev" width="18"
-              height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          <button class="acc-btn" aria-expanded="false">Can I submit to more than one sub-track?<svg class="chev"
+              width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9" />
             </svg></button>
           <div class="acc-body">
             <div class="acc-inner">
-              <p>No — submit each paper to the single track that best matches its primary contribution. The technical
-                programme committee may reassign a paper to a different track if that gives it a better-matched set of
+              <p>No — submit each paper to the single sub-track that best matches its primary contribution. The
+                technical
+                programme committee may reassign a paper to a different sub-track if that gives it a better-matched set
+                of
                 reviewers.</p>
             </div>
           </div>
@@ -3016,6 +3327,10 @@
           <p style="max-width:340px">International Conference on Computing, Communication and Intelligent Technologies,
             hosted by the School of Computer Science and Engineering (SoCSE), RV University, Bengaluru.</p>
           <p style="color:#66808F;font-size:.84rem">19–20 March 2027 &middot; Homi J Bhabha Hall, RV University</p>
+          <div class="foot-org">
+            <span class="foot-org-lbl">Organised by</span>
+            <img src="images/rvu-logo.png" alt="RV University" width="512" height="258" loading="lazy" decoding="async">
+          </div>
         </div>
         <div>
           <h4>Conference</h4>
@@ -3092,24 +3407,43 @@
       onScroll();
 
       /* ---------- Mobile nav ---------- */
+      /* Must match the drawer breakpoint in the stylesheet. */
+      var NAV_BP = 1200;
       var burger = document.querySelector('.burger');
       var navList = document.querySelector('.nav-list');
       var scrim = document.querySelector('.nav-scrim');
 
+      function isDrawer() { return window.innerWidth <= NAV_BP; }
+
+      /* The drawer is fixed to the viewport, so it has to be told where the
+         sticky header ends — that moves as the top bar scrolls away. */
+      function syncDrawerTop() {
+        if (!header) return;
+        var b = Math.max(0, Math.round(header.getBoundingClientRect().bottom));
+        document.documentElement.style.setProperty('--drawer-top', b + 'px');
+      }
+
       function closeNav() {
-        if (burger) burger.classList.remove('open');
+        if (burger) { burger.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
         if (navList) navList.classList.remove('open');
         if (scrim) scrim.classList.remove('show');
+        document.body.classList.remove('nav-open');
         document.body.style.overflow = '';
-        if (burger) burger.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.nav-item.open').forEach(function (n) { n.classList.remove('open'); });
       }
+
+      function openNav() {
+        syncDrawerTop();
+        if (navList) navList.classList.add('open');
+        if (burger) { burger.classList.add('open'); burger.setAttribute('aria-expanded', 'true'); }
+        if (scrim) scrim.classList.add('show');
+        document.body.classList.add('nav-open');
+        document.body.style.overflow = 'hidden';
+      }
+
       if (burger && navList) {
         burger.addEventListener('click', function () {
-          var open = navList.classList.toggle('open');
-          burger.classList.toggle('open', open);
-          if (scrim) scrim.classList.toggle('show', open);
-          document.body.style.overflow = open ? 'hidden' : '';
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (navList.classList.contains('open')) closeNav(); else openNav();
         });
       }
       if (scrim) scrim.addEventListener('click', closeNav);
@@ -3118,7 +3452,7 @@
       /* Accordion-style dropdowns on mobile */
       document.querySelectorAll('.nav-item.has-drop > .nav-link').forEach(function (link) {
         link.addEventListener('click', function (e) {
-          if (window.innerWidth <= 1080) {
+          if (isDrawer()) {
             e.preventDefault();
             var item = link.parentElement;
             var wasOpen = item.classList.contains('open');
@@ -3127,10 +3461,15 @@
           }
         });
       });
-      document.querySelectorAll('.dropdown a').forEach(function (a) {
-        a.addEventListener('click', function () { if (window.innerWidth <= 1080) closeNav(); });
+      /* Any link that actually navigates should shut the drawer behind it. */
+      document.querySelectorAll('.dropdown a, .nav-cta, .nav-item:not(.has-drop) > .nav-link').forEach(function (a) {
+        a.addEventListener('click', function () { if (isDrawer()) closeNav(); });
       });
-      window.addEventListener('resize', function () { if (window.innerWidth > 1080) closeNav(); });
+      window.addEventListener('resize', function () {
+        if (!isDrawer()) closeNav(); else syncDrawerTop();
+      });
+      window.addEventListener('scroll', syncDrawerTop, { passive: true });
+      syncDrawerTop();
 
       /* ---------- Back to top ---------- */
       var totop = document.querySelector('.totop');
